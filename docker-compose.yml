@@ -1,0 +1,70 @@
+version: "3"
+networks:
+  webserver:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.238.0/24
+ 
+services:
+  web:
+    build: ./nginx/
+    container_name: ck-web
+    hostname: ck-web
+    networks:
+      webserver:
+        ipv4_address: 172.16.238.10
+    ports:
+      - 80:80
+    volumes:
+      - ~/Documents/pcbx_project:/www/sites
+      - $PWD/nginx/conf.d:/etc/nginx/conf.d
+      - $PWD/nginx/log:/var/log/nginx
+    links: 
+      - php
+    dns:
+      - 223.5.5.5
+  php:
+    build: ./php/
+    container_name: ck-php
+    hostname: ck-php
+    networks:
+      webserver:
+        ipv4_address: 172.16.238.11
+    volumes:
+      - ~/Documents/pcbx_project:/www/sites
+    extra_hosts:
+      - "used-dev.com:172.16.238.10"
+      - "clake-dev.com:172.16.238.10"
+    dns:
+      - 223.5.5.5
+  redis:
+    image: redis:5.0.1-alpine
+    container_name: ck-redis
+    hostname: ck-redis
+    ports:
+      - 6680:6379
+    networks:
+      webserver:
+        ipv4_address: 172.16.238.12
+    dns:
+      - 223.5.5.5
+  mysql:
+    # build: ./mysql/
+    image: mysql:5.7
+    container_name: ck-mysql
+    hostname: ck-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: "123123"
+    ports:
+      - 3306:3306
+    volumes:
+      - $PWD/mysql/data:/var/lib/mysql
+      - $PWD/mysql/etc:/etc/mysql/conf.d
+      # - ./data:/var/lib/mysql
+    dns:
+      - 223.5.5.5
+    networks:
+      webserver:
+        ipv4_address: 172.16.238.13

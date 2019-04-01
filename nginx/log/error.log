@@ -1,0 +1,9 @@
+2018/08/15 03:10:34 [emerg] 1#1: host not found in upstream "php-dev" in /etc/nginx/conf.d/www.conf:29
+2018/08/15 03:15:49 [emerg] 1#1: host not found in upstream "php-dev" in /etc/nginx/conf.d/www.conf:29
+2018/08/15 03:19:01 [emerg] 1#1: host not found in upstream "php-dev" in /etc/nginx/conf.d/www.conf:29
+2018/08/15 03:20:30 [emerg] 1#1: host not found in upstream "php-dev" in /etc/nginx/conf.d/www.conf:29
+2018/08/15 03:20:51 [emerg] 1#1: host not found in upstream "php-dev" in /etc/nginx/conf.d/www.conf:29
+2018/08/15 06:33:01 [warn] 1#1: conflicting server name "localhost" on 0.0.0.0:80, ignored
+2018/11/23 05:46:26 [emerg] 1#1: host not found in upstream "nginx-php-compose_php_1" in /etc/nginx/conf.d/used.conf:29
+2018/11/23 05:47:11 [emerg] 1#1: host not found in upstream "nginx-php-compose_php_1" in /etc/nginx/conf.d/used.conf:29
+2018/11/23 05:49:59 [emerg] 1#1: host not found in upstream "nginx-php-compose_php_1" in /etc/nginx/conf.d/used.conf:29
