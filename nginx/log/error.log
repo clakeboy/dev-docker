@@ -7,3 +7,5 @@
 2018/11/23 05:46:26 [emerg] 1#1: host not found in upstream "nginx-php-compose_php_1" in /etc/nginx/conf.d/used.conf:29
 2018/11/23 05:47:11 [emerg] 1#1: host not found in upstream "nginx-php-compose_php_1" in /etc/nginx/conf.d/used.conf:29
 2018/11/23 05:49:59 [emerg] 1#1: host not found in upstream "nginx-php-compose_php_1" in /etc/nginx/conf.d/used.conf:29
+2020/03/17 09:25:49 [warn] 1#1: conflicting server name "127.0.0.1" on 0.0.0.0:80, ignored
+2020/09/09 15:41:49 [warn] 1#1: conflicting server name "127.0.0.1" on 0.0.0.0:80, ignored

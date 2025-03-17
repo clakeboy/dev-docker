@@ -10,7 +10,7 @@ networks:
 services:
   web:
     build: ./nginx/
-    image: service-web
+    # image: service-web
     container_name: service-web
     hostname: service-web
     networks:
@@ -31,7 +31,7 @@ services:
       - "host.docker.internal:host-gateway"
   php:
     build: ./php/
-    image: service-php
+    # image: service-php
     container_name: service-php
     hostname: service-php
     networks:
@@ -69,7 +69,7 @@ services:
       - "host.docker.internal:host-gateway"
   mysql:
     # build: ./mysql/
-    image: mysql:5.7
+    image: mysql:8.0
     container_name: service-mysql
     hostname: service-mysql
     environment:
@@ -97,6 +97,7 @@ services:
       - 27018:27017
     volumes:
       - $PWD/mongo/data:/data/db
+      - $PWD/mongo/back:/data/back
       - $PWD/timezone/Shanghai:/etc/localtime:ro
     dns:
       - 223.5.5.5
