@@ -25,6 +25,7 @@ services:
       - $PWD/nginx/log:/var/log/nginx
     links: 
       - php
+      - php85
     dns:
       - 223.5.5.5
     extra_hosts:
@@ -39,6 +40,26 @@ services:
         ipv4_address: 172.16.238.11
     volumes:
       - $SITE_DIR:/www/sites
+      - ${SITE_DIR}/../git_project:/www/git_project
+      - $PWD/timezone/Shanghai:/etc/localtime:ro
+    extra_hosts:
+      - "used-dev.com:172.16.238.10"
+      - "clake-dev.com:172.16.238.10"
+      - "host.docker.internal:host-gateway"
+    dns:
+      - 223.5.5.5
+  php85:
+    build:
+      context: ./php/
+      dockerfile: Dockerfile-8.5
+    container_name: service-php85
+    hostname: service-php85
+    networks:
+      webserver:
+        ipv4_address: 172.16.238.16
+    volumes:
+      - $SITE_DIR:/www/sites
+      - ${SITE_DIR}/../git_project:/www/git_project
       - $PWD/timezone/Shanghai:/etc/localtime:ro
     extra_hosts:
       - "used-dev.com:172.16.238.10"

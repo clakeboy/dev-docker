@@ -13,9 +13,9 @@ RUN sed -i 's/http:\/\/dl-cdn.alpinelinux.org/https:\/\/mirrors.ustc.edu.cn/g' /
     && apk add --no-cache \
     libpng libpng-dev libjpeg autoconf g++ make openssl-dev \
     && docker-php-ext-install pdo_mysql gd opcache \
-    && pecl install redis \
+    && pecl install redis-5.3.7 \
     && docker-php-ext-enable redis \
-    && pecl install mongodb \
+    && pecl install mongodb-1.15.0 \
     && docker-php-ext-enable mongodb \
     && pecl clear-cache \
     && apk del autoconf g++ make \

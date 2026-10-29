@@ -2,3 +2,5 @@ mysql/data
 .DS_Store
 nginx/log
 mongo/data
+mongo/back
+redis/data
