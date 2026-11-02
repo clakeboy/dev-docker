@@ -21,6 +21,7 @@ services:
     volumes:
       - $PWD/timezone/Shanghai:/etc/localtime:ro
       - $SITE_DIR:/www/sites
+      - ${SITE_DIR}/../eft_workspace/eft-etrace:/www/eft-etrace
       - $PWD/nginx/conf.d:/etc/nginx/conf.d
       - $PWD/nginx/log:/var/log/nginx
     links: 
@@ -41,6 +42,7 @@ services:
     volumes:
       - $SITE_DIR:/www/sites
       - ${SITE_DIR}/../git_project:/www/git_project
+      - ${SITE_DIR}/../eft_workspace/eft-etrace:/www/eft-etrace
       - $PWD/timezone/Shanghai:/etc/localtime:ro
     extra_hosts:
       - "used-dev.com:172.16.238.10"
@@ -60,6 +62,7 @@ services:
     volumes:
       - $SITE_DIR:/www/sites
       - ${SITE_DIR}/../git_project:/www/git_project
+      - ${SITE_DIR}/../eft_workspace/eft-etrace:/www/eft-etrace
       - $PWD/timezone/Shanghai:/etc/localtime:ro
     extra_hosts:
       - "used-dev.com:172.16.238.10"
